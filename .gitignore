@@ -1,0 +1,17 @@
+debug/
+target/
+**/*.rs.bk
+*.pdb
+/target
+
+*.exe
+*.json
+*.bin
+*.dll
+*.lib
+*.sh
+*.ps1
+*.bat
+*.DS_Store
+.env
+

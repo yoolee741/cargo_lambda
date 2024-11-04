@@ -1,0 +1,26 @@
+[package]
+name = "environment_lambda"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 16
+panic = "unwind"
+debug = false
+
+[dependencies]
+lambda_runtime = "0.13.0"                                                  # AWS Lambda runtime
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.41.0", features = ["full"] }
+reqwest = { version = "0.11.17", features = ["default", "native-tls"] }
+openssl = { version = "0.10", features = ["vendored"] }
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+tokio-postgres = { version = "0.7", features = ["with-chrono-0_4"] }
+deadpool-postgres = "0.14.0"                                               # For connection pooling
+dotenv = "0.15"
+anyhow = "1.0.90"                                                          # For environment variables
